@@ -110,6 +110,9 @@ public class DivingHelmetItem extends BaseArmorItem {
 		if (drowning)
 			entity.setAirSupply(10);
 
+		if (!lavaDiving && entity.hasEffect(MobEffects.CONDUIT_POWER))
+			return;
+
 		if (world.isClientSide)
 			entity.getPersistentData()
 				.putInt("VisualBacktankAir", Math.round(backtanks.stream()
